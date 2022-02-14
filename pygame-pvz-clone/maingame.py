@@ -9,21 +9,8 @@ import flower as flower
 pygame.init()
 random.seed()
 
-class Function:
-    def __init__(self) -> None:
-        pass
-    
-    def render(self, screen):
-        screen.blit(self._image, self._rect)
 
-    def mouse_collusion(self, clickedcoord):
-        if self._rect.collidepoint(clickedcoord):
-            return True
-        else:
-            return False
-        
-
-class Game(Function): 
+class Game: 
     def __init__(self):
         self._menubar = MenuBar()
         # Lists of every type of object that actively interacts with the game
@@ -681,7 +668,7 @@ class Slot(MenuBar, Function):
         screen.blit(self._image, self._rect)
 
 
-class Block(Function):
+class Block:
     def __init__(self, top, left, lane):
         # Size
         self._heigth = 75
@@ -714,7 +701,7 @@ class Block(Function):
         self._flower = fl
 
 
-class Grassmower(Function):
+class Grassmower:
     def __init__(self, top, left):
         self._top = top
         self._left = left
