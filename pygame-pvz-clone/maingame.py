@@ -579,7 +579,7 @@ class MenuBar:
         return self._top, self._left
       
 
-class Slot(MenuBar, Function):
+class Slot(MenuBar):
     def __init__(self, simage, top, left, key):
         # Images
         self._image = pygame.image.load(simage)
@@ -666,6 +666,12 @@ class Slot(MenuBar, Function):
 
     def render_slot(self, screen):
         screen.blit(self._image, self._rect)
+        
+    def mouse_collusion(self, clickedcoord):
+        if self._rect.collidepoint(clickedcoord):
+            return True
+        else:
+            return False
 
 
 class Block:
@@ -699,6 +705,12 @@ class Block:
 
     def setflower(self, fl):
         self._flower = fl
+        
+    def mouse_collusion(self, clickedcoord):
+        if self._rect.collidepoint(clickedcoord):
+            return True
+        else:
+            return False
 
 
 class Grassmower:
